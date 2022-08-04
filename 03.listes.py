@@ -47,7 +47,7 @@ print(" \n\t2.Voici une boucle for")
 i = 1
 for animal in animaux_d_afrique:
    print(f"{i}. {animal.title()}")
-   i = i+1
+   i +=1
 
 # Range
 for value in range(1,5):
