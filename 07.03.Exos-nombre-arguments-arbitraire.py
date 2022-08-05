@@ -39,13 +39,17 @@ def show_cars_liste(liste):
             if label != "marque" and label != "modele" :
                 print(f"{label}: {info}")
         
-
+### on défini 3 voitures 
 car1 = make_car("BMW", "M5", couleur="Noire", siege="cuir")
 car2 = make_car("Ferrari", "F-40", couleur="Rouge", particularité="très chère")
 car3 = make_car("Dacia", "Sandero", couleur="Blanche", particularité="pas chère")
 
+### on ajoute ces voitures à la liste
 cars = [car1,car2, car3]
 flag = True
+
+### on propose a l'utilisateur d'ajouter une nouvelle voiture
+###! nécessite plus de vérifications
 while flag:
     new_car = input("Veux tu créer une nouvelle voiture: oui/non\n")
     if new_car == "non":
@@ -55,21 +59,17 @@ while flag:
         new_modele = input("Nouveau modèle\n")
         voiture = make_car(new_marque, new_modele)
         flag_infos_supp = True
+        ### on demande si tu veux ajouter des informations supplémentaires sur ce véhicule
         while flag_infos_supp:
             plus_d_infos = input("Veux tu rentrer d'autres infos sur ce véhicule ? oui/non\n")
             if plus_d_infos == "non":
                 break
             else:
+                ### on ajoute ces informations supplémentaires et on repart dansla boucle
+                ### en demandant si tu veux ajouter des informations supplémentaires
                 nouveau_label = input("entre le nom d'un label (exemple: couleur)\n")
                 nouvelle_info = input(f"entre l'information : {nouveau_label}\n")
                 voiture[nouveau_label] = nouvelle_info
-                
-
-#! A voir comment ajouter dynamiquement une info supplémentaire a voiture
-        
         cars.append(voiture)
-        
-
-
 
 show_cars_liste(cars)
