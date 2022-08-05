@@ -53,18 +53,20 @@ while flag:
     else:    
         new_marque = input("Nouvelle marque\n")
         new_modele = input("Nouveau modèle\n")
+        voiture = make_car(new_marque, new_modele)
         flag_infos_supp = True
         while flag_infos_supp:
-            plus_d_infos = input("Veux tu rentrer d'autres infos sur ce véhicule ? oui/non")
+            plus_d_infos = input("Veux tu rentrer d'autres infos sur ce véhicule ? oui/non\n")
             if plus_d_infos == "non":
                 break
             else:
-                nouveau_label = input("entre le nom d'un label (exemple: couleur)")
-                nouvelle_info = input(f"entre l'information : {nouveau_label}")
-                break
+                nouveau_label = input("entre le nom d'un label (exemple: couleur)\n")
+                nouvelle_info = input(f"entre l'information : {nouveau_label}\n")
+                voiture[nouveau_label] = nouvelle_info
+                
 
 #! A voir comment ajouter dynamiquement une info supplémentaire a voiture
-        voiture = make_car(new_marque, new_modele)
+        
         cars.append(voiture)
         
 
