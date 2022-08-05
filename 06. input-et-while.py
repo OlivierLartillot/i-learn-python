@@ -30,8 +30,8 @@ while flag == False:
 name = input('\nComment t appeles tu ?')
 ingredients_en_stock = ['cornichons', 'poivrons', 'tomates', 'oignons', 'champignons', 'saumon', 'olives']
 dico_aide = {
-    "terminer" : "terminer: Pour envoyer votre commande",
-    "liste" : "liste: Pour voir la liste des ingrédients disponible"
+    "liste" : "liste: Pour voir la liste des ingrédients disponible",
+    "terminer" : "terminer: Pour envoyer votre commande ou choisir une autre pizza",
 }
 print(f'Bonjour {name.title()}.\n\n Voici la liste des ingrédients disponibles:\n {ingredients_en_stock}\n')
 liste_ingredients = []
@@ -52,11 +52,17 @@ while flag == True:
         other_pizza = input('Veux tu une autre pizza ? oui/non\n')
         other_pizza = other_pizza.lower()
         ## si oui => continue
-        if other_pizza == 'oui':
-            continue
-        ## si non on sort de la boucle
-        else:
-            flag = False 
+        flag_terminer = False
+        while flag_terminer == False:
+            if other_pizza == 'oui':
+                flag_terminer = True
+                continue
+            ## si non on sort de la boucle
+            elif other_pizza == 'non':
+                flag_terminer = True
+                flag = False 
+            else:
+                other_pizza = input('Tu dois répondre à cette question:\nVeux tu une autre pizza ? oui/non\n')
     elif ingredient == 'aide':
         for label,texte in dico_aide.items():
             print(f'\t-{texte}')
@@ -69,8 +75,11 @@ while flag == True:
     else:
         liste_ingredients.append(ingredient)
 
+attente_par_pizza = 5
+nombre_pizze = len(liste_pizzas)
+temps_attente_estime = attente_par_pizza * nombre_pizze
 print(f'{name.title()}, tu as choisi :')
 for pizza in liste_pizzas:
     print(f'- {pizza}')
-print('Ta commande sera prête dans 5 minutes !')  
+print(f'Ta commande sera prête dans {temps_attente_estime} minutes !')  
 
