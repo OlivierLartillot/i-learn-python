@@ -1,12 +1,12 @@
 # Nombre d'arguments arbitraire
-print("Nombre d'arguments arbitraires")
+
+nom = "sebounet"
+print(f"Nombre d'arguments arbitraires")
 
 ## Liste de garnitures dans un sandwich
 def recap_sandwich(*ingredients):
     for ingredient in ingredients:
         print(f"-{ingredient}")
-
-
 
 def make_sandwich():
     print("q pour terminer le sandwich")
@@ -21,6 +21,8 @@ def make_sandwich():
 
 my_ingredients = make_sandwich()
 recap_sandwich(my_ingredients, "salade")
+
+
 
 ## Fabrique à voiture
 print("\n\t Bienvenue dans la fabrique à voiture")
@@ -73,3 +75,4 @@ while flag:
         cars.append(voiture)
 
 show_cars_liste(cars)
+
