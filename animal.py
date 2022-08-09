@@ -1,6 +1,11 @@
 # Exercice d'entrainement
 # Les animaux du zoo
+'''
+Ensemble de classes servant à décrire ou faire exécuter des actions
+à des animaux classés par mamifere et oiseaux
+'''
 import random
+
 class Animal:
     '''On modélise un animal'''
     ##Un constructeur
@@ -18,15 +23,17 @@ class Animal:
         texte = f"zzz, zzzz, {self.name} est entrain de dormir"
         return texte
 
+
 class Mamifere(Animal):
-    '''On modélise un mamifère, héritier d'animal'''
+    '''On modélise un mamifère, héritier d'animal (Animal->Mamifere)'''
     def __init__(self, name, age):
         super(). __init__(name, age)
         self.nbre_pattes = 4
         self.type = type
 
+
 class Oiseau(Animal):
-    '''On modélise un oiseau, héritier d'animal'''
+    '''On modélise un oiseau, héritier d'animal (Animal->Oiseau)'''
     def __init__(self, name, age, race):
         super(). __init__(name, age)
         self.nbre_pattes = 2
@@ -37,7 +44,9 @@ class Oiseau(Animal):
         texte = f"{self.name} est entrain de faire Cuicui"
         return texte
 
+
 class Chien(Mamifere):
+    ''''Un Chien est une classe fille de mamifère (Animal->Mamifere->Chien)'''
     def __init__(self, name, age,race):
         super(). __init__(name, age)
         self.type = "chien"    
@@ -58,16 +67,7 @@ class Chien(Mamifere):
         return texte
 
 
-my_dog = Chien('Pupy',8,"Dog Allemand")
-print(my_dog.name)
-print(my_dog.age)
-print(my_dog.eats())
-print(f"{my_dog.name} a {my_dog.nbre_pattes} pattes")
-print(f"{my_dog.name} est un {my_dog.race}.")
-print(f"Mon chien fait {my_dog.crier()}")
 
-my_bird = Oiseau("Titi", 25, "Canari")
-print(f"{my_bird.name} est un {my_bird.race}. il a {my_bird.age} ans. Il a donc {my_bird.nbre_pattes} pattes et {my_bird.nbre_ailes} ailes.")
 
 
 
